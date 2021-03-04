@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Medicine Solution</string>
+    <string name="Polysporin">Cleanse : Clean affected area thoroughly.
+
+Treat : Apply POLYSPORIN® Plus Pain Relief Cream to the area 1 to 3 times daily.
+
+Protect : Apply a sterile bandage, such as BAND-AID® Brand Adhesive Bandage, if available.
+
+WARNINGS : For external use only. Avoid contact with eyes; if this occurs, rinse thoroughly with water. Do not use over large
+        areas of the body, in deep or puncture wounds, on animal bites or serious burns, or for more than 7 days unless directed by a doctor. Do not use
+        if you are allergic to any of the ingredients; if irritation occurs, discontinue use and consult a doctor. Ask a doctor
+        before use if you are pregnant or breastfeeding.
+
+Store between 15°C and 30°C.</string>
+
+    <string name="Retin_A"> Wash your hands before applying Retin-A . Gently clean the affected skin with a mild
+        or soapless cleanser and pat dry. Use your fingertips to apply a small amount of medication (about the size of a pea)
+        in a thin layer, usually once daily at bedtime or as directed by your doctor.
+        A gauze pad or cotton swab can be used to apply the liquid. For some preparations, you should wait 20-30 minutes after
+        cleaning your face before applying this medication. Consult the label directions, the Patient Information Leaflet, or your pharmacist if you have any questions.
+
+Use this medication on the skin only. Do not apply to the inner lip area or inside the nose/mouth. Do not apply to cut, scraped, sunburned, or eczema-affected skin.
+
+Avoid getting this medication in your eyes. If this medication gets into your eyes, flush with large amounts of water. Call your doctor
+        if eye irritation develops. Wash your hands after using the medication to avoid accidentally getting it in your eyes.</string>
+    <string name="blexten">The recommended dose of BLEXTEN is 1 tablet (20 mg) taken by mouth, once a day.
+
+It should be taken with water on an empty stomach; one hour before eating or two hours after eating for the best effect. Food, grapefruit
+        juice and other juices can reduce how well this medication works.
+
+Many things can affect the dose of medication that a person needs, such as body weight, other medical conditions, and other medications.
+        If your doctor has recommended a dose different from the ones listed here, do not change the way that you are taking the medication without consulting your doctor.
+
+It is important to take this medication exactly as prescribed by your doctor.
+
+If you miss a dose, skip the missed dose and continue with your regular dosing schedule.
+        Do not take a double dose to make up for a missed one. If you are not sure what to do after missing a dose, contact your doctor or pharmacist for advice.</string>
+
+    <string name="nurofen">Prescription nurofen comes as a tablet to take by mouth. It is usually taken three or four times a day for arthritis or every 4 to 6 hours as needed
+        for pain. Nonprescription ibuprofen comes as a tablet, chewable tablet, suspension (liquid), and drops (concentrated liquid).
+        Adults and children older than 12 years of age may usually take nonprescription ibuprofen every 4 to 6 hours as needed for pain
+        or fever. Children and infants may usually be given nonprescription ibuprofen every 6 to 8 hours as needed for pain or fever,
+        but should not be given more than 4 doses in 24 hours. Ibuprofen may be taken with food or milk to prevent stomach upset.
+        If you are taking ibuprofen on a regular basis, you should take it at the same time(s) every day. Follow the directions on the package
+        or prescription label carefully, and ask your doctor or pharmacist to explain any part you do not understand. Take ibuprofen exactly as directed.
+        Do not take more or less of it or take it more often than directed by the package label or prescribed by your doctor.
+
+Ibuprofen comes alone and in combination with other medications. Some of these combination products are available by prescription only,
+        and some of these combination products are available without a prescription and are used to treat cough and cold symptoms and other conditions.
+        If your doctor has prescribed a medication that contains ibuprofen, you should be careful not to take any nonprescription medications that also contain ibuprofen.</string>
+</resources>
