@@ -24,6 +24,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
@@ -31,8 +36,11 @@ import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
     private ImageView camera;
@@ -45,8 +53,8 @@ public class MainActivity extends AppCompatActivity  {
     private TextView prescription;
     private String medicines[];
     private TextToSpeech tts;
-    private String polysporin,retinA,blexten,nurofen;
-
+    private DatabaseReference  myRef;
+    Medicine medicineName = new Medicine();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,16 +78,13 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
+
         camera = findViewById(R.id.imageView4);
         image  = findViewById(R.id.imageView3);
         getMedicine = findViewById(R.id.button);
         textEdit = findViewById(R.id.editTextTextPersonName);
         prescription = findViewById(R.id.textView);
-        polysporin = getResources().getString(R.string.Polysporin);
-        retinA = getResources().getString(R.string.Retin_A);
-        blexten = getResources().getString(R.string.blexten);
-        nurofen = getResources().getString(R.string.nurofen);
-        medicines = new String[]{"Polysporin","Retin-A","BLEXTEN","NUROFEN"};
+        myRef = FirebaseDatabase.getInstance().getReference().child("medicines").child("medicines");
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,26 +111,28 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     private void speakPrescription() {
-        String str = textEdit.getText().toString();
-        if(str.contains(medicines[0])){
-            prescription.setText(polysporin);
-            tts.speak(polysporin,TextToSpeech.QUEUE_FLUSH,null,null);
-        }
-        if(str.contains(medicines[1])){
-            prescription.setText(retinA);
-            tts.speak(retinA,TextToSpeech.QUEUE_FLUSH,null,null);
-        }
-        if(str.contains(medicines[2])){
-            prescription.setText(blexten);
-            tts.speak(blexten,TextToSpeech.QUEUE_FLUSH,null,null);
-        }
-        if(str.contains(medicines[3])){
-            prescription.setText(nurofen);
-            tts.speak(nurofen,TextToSpeech.QUEUE_FLUSH,null,null);
-        }
 
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String str = textEdit.getText().toString();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        medicineName.setValue(ds.child("Pres").getValue().toString());
+                        medicineName.setKey(ds.child("name").getValue().toString());
+                        System.out.println( medicineName.toString());
+                        if ( str.contains(medicineName.getKey())) {
+                            prescription.setText(medicineName.getValue());
+                            tts.speak(medicineName.getValue(),TextToSpeech.QUEUE_FLUSH, null, null);
+                        }
+                    }
+                }
+            }
 
-
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        myRef.addListenerForSingleValueEvent(eventListener);
     }
 
     @Override
